@@ -3,6 +3,7 @@ echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR='tee -a' visudo
 sudo apt-get -y update
 sudo apt-get -y install tmux python3-full pipx
 pipx install termcolor
+python3 -m pip config set global.break-system-packages true
 sudo mkdir /pinecone
 sudo mkdir /pinecone/bin
 sudo mkdir /pinecone/bin/restarters
