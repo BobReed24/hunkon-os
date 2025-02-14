@@ -42,6 +42,7 @@ print(colored("  pinecone --version     : View installed Pinecone version", 'gre
 print(colored("  pinecone --update      : Update Pinecone to the latest version", 'green'))
 print(colored("  pinecone install <pkg> : Install a pinecone package", 'green'))
 print(colored("  pinecone uninstall <pkg> : Uninstall a pinecone package", 'green'))
+print(colored("  pinecone update <pkg>  : Update a pinecone package", 'green'))
 print(colored("  pinecone list          : List all pinecone packages", 'green'))
 print(colored("  compile python <args> <file.py> : Compile python files", 'green'))
 print(colored("  compile cpp <file.cpp> <args> : Compile C++ files", 'green'))
