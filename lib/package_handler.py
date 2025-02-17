@@ -8,7 +8,7 @@ class PackageHandler:
         self.packages = packages
 
     def is_installed(self, package_name):
-        return os.path.isfile(f"lib/{package_name}.py")
+        return os.path.isfile(f"/pinecone/lib/{package_name}.py")
 
     
     def install(self, package_name):
@@ -31,7 +31,7 @@ class PackageHandler:
 
             response = requests.get(package_url)
             if response.status_code == 200:
-                with open(f"lib/{package_name}.py", "wb") as f:
+                with open(f"/pinecone/lib/{package_name}.py", "wb") as f:
                     f.write(response.content)
                 print(colored(f"Library '{package_name}' installed successfully!", "green"))
             else:
@@ -46,7 +46,7 @@ class PackageHandler:
             return
 
         elif package_name != "package_handler" and package_name != "packages":
-            os.remove(f"lib/{package_name}.py")
+            os.remove(f"/pinecone/lib/{package_name}.py")
             print(colored(f"Library '{package_name}' uninstalled successfully!", "green"))
 
         else:
@@ -59,8 +59,8 @@ class PackageHandler:
 
         print(f"Updating '{package_name}'...")
 
-        backup_path = f"lib/{package_name}.py.bak"
-        package_path = f"lib/{package_name}.py"
+        backup_path = f"/pinecone/lib/{package_name}.py.bak"
+        package_path = f"/pinecone/lib/{package_name}.py"
 
         if os.path.exists(package_path):
             os.rename(package_path, backup_path)
@@ -82,7 +82,7 @@ class PackageHandler:
 
     def list_installed(self):
         installed_packages = [
-            f[:-3] for f in os.listdir("lib/") 
+            f[:-3] for f in os.listdir("/pinecone/lib/") 
             if f.endswith(".py") and f[:-3] not in {"package_handler", "__init__", "packages"}
         ]
 
@@ -107,8 +107,8 @@ class PackageHandler:
 
     def run_package(self, package_name, command_parts):
         if self.is_installed(package_name) and command_parts is not None:
-            subprocess.run(["python3", f"lib/{package_name}.py"] + command_parts[1:])
+            subprocess.run(["python3", f"/pinecone/lib/{package_name}.py"] + command_parts[1:])
         elif self.is_installed(package_name) and command_parts is None:
-            subprocess.run(["python3"], f"lib/{package_name}.py")
+            subprocess.run(["python3"], f"/pinecone/lib/{package_name}.py")
         else:
             print(colored(f"Error: Library '{package_name}' is not installed", "red"))
