@@ -38,7 +38,7 @@ We welcome contributions! Follow these steps to contribute:
 - Create a new package in this format
 ```
   [
-  "commandname or libname", "raw file download link", "dependencies (leave blank if there are no dependencies)",
+  "commandname or libname", "raw file download link", "dependencies (leave blank if there are no dependencies)", "version as (Vx.x.x)",
 ]
 ```
 - Open a pull request for a merge
