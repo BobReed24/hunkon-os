@@ -1,3 +1,4 @@
+ver = "V0.1.5"
 from termcolor import colored
 print(colored("Available commands:", 'cyan'))
 print(colored("  help, h                : Show this help message", 'green'))
